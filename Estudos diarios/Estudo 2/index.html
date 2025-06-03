@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Soundwave com Áudio</title>
+  <style>
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: sans-serif;
+    }
+
+    .soundwave {
+      display: flex;
+      gap: 5px;
+      margin-top: 20px;
+    }
+
+    .bar {
+      width: 8px;
+      height: 10px;
+      background: #0ff;
+      border-radius: 4px;
+      transition: height 0.1s ease;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #0ff;
+      color: #111;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="audio" src="cala-boca-e-escuta-o-som-do-meu-corsa.mp3" preload="auto"></audio>
+  <button onclick="playAudio()">▶️ Tocar</button>
+
+  <div class="soundwave" id="soundwave">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const bars = document.querySelectorAll('.bar');
+
+    function playAudio() {
+      audio.play();
+
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const source = audioContext.createMediaElementSource(audio);
+      const analyser = audioContext.createAnalyser();
+      analyser.fftSize = 64;
+
+      source.connect(analyser);
+      analyser.connect(audioContext.destination);
+
+      const bufferLength = analyser.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        analyser.getByteFrequencyData(dataArray);
+
+        bars.forEach((bar, i) => {
+          const value = dataArray[i * 2] || 0;
+          const height = Math.max(10, value / 2);
+          bar.style.height = `${height}px`;
+        });
+      }
+
+      animate();
+    }
+  </script>
+</body>
+</html>

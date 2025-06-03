@@ -1,0 +1,578 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+:root {
+  --bg-url: url(./assets/summer-background-abstract-background-wallpaper-use-for-presentation_HDDYoJOhMg_thumb.jpg);
+}
+
+body {
+  background: white;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+}
+
+#top-geral{
+  padding-inline: 16px;
+}
+
+.top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(0, 0, 0);
+  height: 7.0rem;
+  padding-right: 1.0rem;
+  border-bottom: 2px solid red;
+}
+
+#logo-top img{
+  width: 10.0rem;
+  height: 10.0rem;
+  padding-left: 1.0rem;
+  cursor: pointer;
+}
+
+.lista{
+  display: flex;
+  gap: 0.7rem;
+  list-style: none;
+  padding-right: 1.0rem;
+  z-index: 2;
+}
+
+.lista .menu {
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  padding-block: 16px;
+}
+
+.menu {
+  background-color: red;
+  border-radius: 999px;
+  border: 2px solid white;
+  padding: 0.8rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#logo {
+  background: transparent;
+  border: none;
+}
+
+.hamburger {
+  display: none;
+  border: none;
+  background: none;
+  border-top: 3px solid white;
+  cursor: pointer;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: white;
+  margin-top: 5px;
+  position: relative;
+  transition: 0.3s;
+}
+
+@media (max-width: 1920px) {
+  .hamburger{
+    display: block;
+    z-index: 3;
+  }
+
+  .lista {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    clip-path: circle(100px at 90% -15%);
+    transition: 1s ease-out;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0;
+    pointer-events: none;
+  }
+
+  .lista li {
+    gap: 50px;
+  }
+
+  .lista .menu {
+    font-size: 24px;
+    opacity: 0;
+  }
+
+  .lista li:nth-child(1) .menu {
+    transition: 0.5s 0.2s;
+  }
+
+  .lista li:nth-child(2) .menu {
+    transition: 0.5s 0.4s;
+  }
+
+  .lista li:nth-child(3) .menu {
+    transition: 0.5s 0.6s;
+  }
+
+  .lista li:nth-child(4) .menu {
+    transition: 0.5s 0.8s;
+  }
+
+  .lista li:nth-child(5) .menu {
+    transition: 0.5s 1.0s;
+  }
+
+  .top.active .lista {
+    clip-path: circle(1500px);
+    pointer-events: all;
+  }
+
+  .top.active .lista .menu {
+    opacity: 1;
+  }
+
+  .top.active .hamburger {
+    position: fixed;
+    top: 26px;
+    right: 16px;
+    border-top-color: transparent;
+  }
+
+  .top.active .hamburger::before{
+    transform: rotate(135deg);
+  }
+
+  .top.active .hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+}
+
+@media screen and  (max-width: 320px) {
+  .fundo{
+    width: 320px;
+  }
+}
+
+@media screen and  (max-width: 320px) {
+  #local{
+    width: 236px;
+  }
+}
+
+@media screen and  (max-width: 320px) {
+  .barra-das-marca{
+    width: 236px;
+  }
+}
+
+@media screen and  (max-width: 320px) {
+  .barra{
+    width: 320px;
+  }
+}
+
+@media screen and  (max-width: 320px) {
+  .barrahorario{
+    height: 200px;
+  }
+}
+
+@media screen and  (max-width: 320px) {
+  .textfieldter {
+    border-left: none;
+    align-items: center;
+  }
+}
+
+@media screen and  (max-width: 320px) {
+  .textfieldini {
+    align-items: center;
+  }
+}
+
+#geral-mid {
+  background: rgba(0, 0, 0, 0.644);
+}
+
+.mid {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-shadow: 0px 0px 50px #000000;
+
+}
+
+.fundo {
+  background-color: rgba(255, 0, 0, 0.596);
+  padding: 10px;
+  border-radius: 15px;
+  flex-wrap: wrap;
+}
+
+.mid .pesquisa{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.barra {
+  border-radius: 999px;
+  padding: 10px;
+  background: black;
+  height: 62px;
+  flex-wrap: wrap;
+}
+
+.fa-solid{
+  font-size: 23px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#local {
+  border: none;
+  height: 40px;
+  width: 440px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px;
+  outline: none;
+  border-radius: 999px;
+}
+
+.mid .botao-de-pesquisa {
+  height: 40px;
+  width: 40px;
+  border: none;
+  background: none;
+}
+
+.barradehorarios{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.barrahorario {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 10px;
+  background: black;
+  height: 85px;
+  flex-wrap: wrap;
+}
+
+#horario {
+  border: none;
+  height: 40px;
+  width: 200px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px;
+  outline: none;
+  border-radius: 999px;
+}
+
+.mid .botao-de-horario {
+  height: 40px;
+  width: 35px;
+  border: none;
+  background: none;
+}
+
+.textfieldini {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: auto;
+  width: auto;
+}
+
+.textfieldter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-left: 2px solid rgb(255, 0, 0);
+  padding-left: 10px;
+  height: auto;
+  width: auto;
+}
+
+label {
+  color: white;
+}
+
+.aba-marcas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.barra-das-marca {
+  width: 440px;
+  height: 40px;
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px;
+  outline: none;
+  border-radius: 999px;
+}
+
+.car {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  z-index: 1;
+}
+
+.cars {
+  position: relative;
+  width: 400px;
+  height: 350px;
+  margin: 20px;
+}
+
+.cars .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.cars .front {
+  transform: perspective(600px) rotateY(0deg);
+  box-shadow: 0 5px 10px #000;
+}
+
+.cars .front img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cars .front h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: white;
+  background-color: rgb(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.cars .back {
+  transform: perspective(600px) rotateY(180deg);
+  background: rgb(3, 35, 54);
+  padding: 15px;
+  color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 5px 10px #000;
+}
+
+.cars .back .link {
+  border-top: solid 1px #f3f3f3;
+  height: 50px;
+  line-height: 50px;
+}
+
+.cars .back .link .linksdetalhes {
+  color: #f3f3f3;
+}
+
+.cars .back .carronumeroum{
+  font-size: 30px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.cars .back p {
+  letter-spacing: 1px;
+}
+
+.cars:hover .front {
+  transform: perspective(600px) rotatey(180deg);
+}
+
+.cars:hover .back {
+  transform: perspective(600px) rotatey(360deg);
+}
+
+.descricaos {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  padding: 50px;
+  text-align: center;
+  color: #f3f3f3;
+  border-top: 2px solid red;
+  background-color: #000;
+}
+
+.descricaos h1 {
+  min-width: 120px;
+}
+
+.descricaos h3 {
+  min-width: 120px;
+}
+
+.tex2{
+  margin-top: 20px;
+}
+
+.infos {
+  border-top: 2px solid red;
+  background-color: #000;
+}
+
+.infoempresa {
+  margin: 30px;
+  align-items: center;
+  width: 150px;
+  color: #f3f3f3;
+}
+
+.infus1 {
+  padding: 10px;
+}
+
+.infus2 {
+  padding: 10px;
+}
+
+.infus3 {
+  padding: 10px;
+}
+
+.infoempresas {
+  color: #f3f3f3;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.titus{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.infus1 li {
+  padding: 10px;
+}
+
+.infus2 {
+  position: absolute;
+  top: 0%;
+  left: 45%;
+  width: 228px;
+  height: 293
+}
+
+.infus3 {
+  position: absolute;
+  top: 0%;
+  left: 45%;
+  right: 0%;
+  width: 300px;
+  height: 293px;
+}
+
+.infus2 li {
+  padding: 10px;
+}
+
+.infus3 li {
+  padding: 10px;
+}
+
+.coluna {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 700px;
+  position: relative;
+}
+
+.rede {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  border-top: 2px solid red;
+  height: 80px;
+}
+
+.instagran {
+  color: rgb(255, 255, 255);
+  background-color: #ffffff4b;
+  font-size: 30px;
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  padding: 2px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.facebook {
+  color: rgb(255, 255, 255);
+  background-color: #ffffff4b;
+  font-size: 30px;
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  padding: 2px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.twiter {
+  color: rgb(255, 255, 255);
+  background-color: #ffffff4b;
+  font-size: 30px;
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+  padding: 2px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.espa {
+  padding: 10px;
+}
