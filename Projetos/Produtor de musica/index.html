@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estudo-1</title>
+  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+  <link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=play_arrow" />
 </head>
@@ -17,21 +19,23 @@
         </div>
         </div>
     <dir id="box1">
-      <div class="boxpt1">
+      <div id="boxpt1">
       <img class="icon" src="asset/download.jpeg" alt="">
-      <h2>뚜두뚜두(DDU-DU DDU-DU)</h2>
-      <h3>BLACKPINK</h3>
     </div>
+    <span id="musicName"></span>
+      <audio id="player" src=""></audio>
       <div class="plays">
-        <img class="skip-bk" src="asset/skip_back.png" alt="">
-        <img class="play" src="asset/play.png" alt="">
-        <img class="skip-nt" src="asset/skip_next.png" alt="">
+        <button id="prevButton"><i class='bxr  bx-rewind'  ></i></button>
+        <button id="playPauseButton"><i class='bxr  bx-play'  ></i></button>
+        <button id="nextButton"><i class='bxr  bx-fast-forward'  ></i></button>
       </div>
       <div class="track-time">
-        <div class="track"></div>
+        <div class="track">
+          <div class="progress"></div>
+        </div>
         <div class="time">
-          <div class="total-time">3:36</div>
-          <div class="last-time">00:12</div>
+          <span id="totalTime">00:00</span>
+          <span id="lastTime">00:00</span>
         </div>
       </div>
     </dir>
@@ -447,4 +451,5 @@ Hit you with that ddu-du ddu-du du
   </div>
   </div>
 </body>
+<script type="module" src="script.js"></script>
 </html>
