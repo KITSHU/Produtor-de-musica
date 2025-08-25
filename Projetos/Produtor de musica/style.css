@@ -86,7 +86,7 @@ body {
   flex-direction: column;
 }
 
-.icon {
+#cover {
   margin-top: 30px;
   height: 130px;
   width: 130px;
@@ -168,41 +168,72 @@ h3{
   cursor: pointer;
 }
 
-.track {
+.footer {
   display: flex;
   flex-direction: column;
-  padding-top: 5px;
-  margin: 0 20px;
-  position: relative;
+  align-items: center;
 }
 
-.track::before {
-  content: '';
-  height: 6px;
-  width: 160px;
-  display: block;
-  background: white;
-  opacity: 0.3;
+.progress-bar {
+  background-color: hsla(0, 100%, 100%, 0.3);
+  width: 180px;
   border-radius: 10px;
-  position: absolute;
+  cursor: pointer;
 }
 
-.track::after{
-  content: '';
-  height: 6px;
-  width: 1px;
-  display: block;
-  background: white;
+.progress {
+  cursor: pointer;
   border-radius: 10px;
+  height: 5px;
+  background-color: hsl(0, 0%, 100%);
 }
 
 .time {
-  margin-top: 5px;
-  padding: 0 20px;
   display: flex;
   justify-content: space-between;
+  width: 180px;
+  margin-top: 5px;
+  padding: 0 20px;
+}
+
+.time span {
+  color: rgb(255, 255, 255);
   font-size: 12px;
+} 
+
+.volume-control {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bx-volume-full {
+  width: 25px;
+  height:  20px;
   color: white;
+  font-size: 20px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 150px;
+  height: 5px;
+  background: hsla(0, 100%, 100%, 0.3);
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border: 2px solid hsla(0, 100%, 100%, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 #pt2 {
@@ -307,25 +338,19 @@ h5 {
 .soundwave {
   display: flex;
   gap: 2px;
+  align-items: flex-end;
 }
 
 .bar {
-  width: 3px;
-  height: 10px;
-  background: rgb(255, 255, 255);
-  animation: bounce 1s infinite ease-in-out;
-  border-radius: 4px;
-}
-
-.bar:nth-child(1) { animation-delay: 0s; }
-.bar:nth-child(2) { animation-delay: 0.3s; }
-.bar:nth-child(3) { animation-delay: 0.5s; }
-.bar:nth-child(4) { animation-delay: 0.3s; }
-.bar:nth-child(5) { animation-delay: 0s; }
-
-@keyframes bounce {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(2.0); }
+  align-items: flex-end;
+  width: 4px;
+  margin: 0 2px;
+  background: #fff;
+  display: inline-block;
+  transition: height 0.1s;
+  height: 20px;
+  max-height: 100px; /* Limite máximo */
+  border-radius: 2px;
 }
 
 .letra {

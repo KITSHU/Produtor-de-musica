@@ -18,9 +18,9 @@
         <input class="pesquisas"  type="text" placeholder="Buscar...">
         </div>
         </div>
-    <dir id="box1">
+    <div id="box1">
       <div id="boxpt1">
-      <img class="icon" src="asset/download.jpeg" alt="">
+      <img id="cover" src="./asset/download.jpeg" alt="">
     </div>
     <span id="musicName"></span>
       <audio id="player" src=""></audio>
@@ -29,16 +29,20 @@
         <button id="playPauseButton"><i class='bxr  bx-play'  ></i></button>
         <button id="nextButton"><i class='bxr  bx-fast-forward'  ></i></button>
       </div>
-      <div class="track-time">
-        <div class="track">
+      <div class="footer">
+        <div class="progress-bar">
           <div class="progress"></div>
         </div>
         <div class="time">
-          <span id="totalTime">00:00</span>
-          <span id="lastTime">00:00</span>
+          <span id="currentTime">00:00</span>
+          <span id="duration">00:00</span>
         </div>
       </div>
-    </dir>
+      <div class="volume-control">
+      <i class='bxr  bx-volume-full'  ></i> 
+        <input id="volumeControl" type="range" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
     <div id="pt2">
     <div id="box2">
       <div class="music">
